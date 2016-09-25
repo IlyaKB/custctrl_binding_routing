@@ -1,0 +1,27 @@
+<core:View xmlns="sap.m"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:core="sap.ui.core"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:custctrl="my.customcontrol.binding.and.routing.control"
+			controllerName="my.customcontrol.binding.and.routing.controller.CustCtrl3">
+	<Page showHeader="false">
+		<content>
+		
+			<ToggleButton id="custctrl_togbut_busy" text="Do busy 1 sec!" press="onPressDoBusy" pressed="true"/>
+		
+			<!-- Data binding aggregation inbuilt controls -->
+			<custctrl:SBCustCtrl3 text="TextText5" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd" busy="{/busy}" busyIndicatorDelay="0">
+				<custctrl:content>
+					<List items="{products>/Products}" headerText="Some B-products">
+						<DisplayListItem
+							label="{products>ProductName}"
+							value="{products>QuantityPerUnit}"
+							type="Navigation"
+							press="onclick3B"/>
+					</List>
+				</custctrl:content>
+			</custctrl:SBCustCtrl3>
+			<!-- /Data binding aggregation inbuilt controls -->
+		</content>
+	</Page>
+</core:View>

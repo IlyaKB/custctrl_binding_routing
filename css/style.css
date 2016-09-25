@@ -1,0 +1,9 @@
+div.this-my-style > div {
+	text-align: center;
+}
+
+div.this-my-style > div:nth-of-type(1)::before {
+	content: "Simple Data Binding (here used custom CSS):";
+	display: block;
+	font: bold 10pt Arial;
+}

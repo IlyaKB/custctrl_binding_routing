@@ -1,0 +1,33 @@
+<mvc:View controllerName="my.customcontrol.binding.and.routing.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	
+	<Toolbar>
+	
+		<Button icon="sap-icon://nav-back" press="onNavBack"/>
+		
+		<ToolbarSpacer/>
+		
+		<!-- Примеры переключателей страниц -->
+		<!-- first: -->
+		<ToggleButton id="header_togbut_home" text="Home" pressed="true" press="onPressNavHome"/>
+		<ToggleButton id="header_togbut_custctrl3" text="CustCtrl3" press="onPressNavCustCtrl3"/>
+ 		<!-- second: -->
+		<SegmentedButton id="head_segmented_buttons" selectedKey="tests">
+			<items>
+				<SegmentedButtonItem id="segbut_home" text="Home" key="home" press="onPressNavHome"/>
+				<SegmentedButtonItem id="segbut_custctrl3" text="CustCtrl3" key="custctrl3" press="onPressNavCustCtrl3"/>
+			</items>
+		</SegmentedButton>
+		<!-- /Примеры переключателей страниц -->
+
+		<ToolbarSpacer/>
+		
+		<Text text="{i18n>appTitle}"/>
+		
+	</Toolbar>
+	
+	<App id="app"/>
+	
+</mvc:View>

@@ -1,0 +1,20 @@
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="my.customcontrol.binding.and.routing.controller.Product">
+	<Page showHeader="false">
+		<HBox>
+			<Label text="ProductID:"/>
+			<Label text="{product>/ProductID}"/>
+		</HBox>
+		<HBox>
+			<Label text="ProductName:"/>
+			<Label text="{product>/ProductName}"/>
+		</HBox>
+		<HBox>
+			<Label text="UnitPrice:"/>
+			<Label text="{product>/UnitPrice}"/>
+		</HBox>
+	</Page>
+</mvc:View>

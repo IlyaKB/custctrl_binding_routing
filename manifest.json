@@ -1,0 +1,90 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "my.customcontrol.binding.and.routing",
+		"type": "application",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "my.customcontrol.binding.and.routing.view.App",
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": { }
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "my.customcontrol.binding.and.routing.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "my.customcontrol.binding.and.routing.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "Home",
+				"target": "home"
+			}, {
+				"pattern": "custctrl3",
+				"name": "CustCtrl3",
+				"target": "custctrl3"
+			}, {
+				"pattern": "custctrl3/{productId}",
+				"name": "Product",
+				"target": "product"
+			}],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel" : 1
+				},
+				"custctrl3": {
+					"viewPath": "my.customcontrol.binding.and.routing.view",
+					"viewName": "CustCtrl3",
+					"viewLevel" : 2
+				},
+				"product": {
+					"viewPath": "my.customcontrol.binding.and.routing.view",
+					"viewName": "Product",
+					"viewLevel" : 3
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show"
+				}
+			}
+		}
+	}
+}

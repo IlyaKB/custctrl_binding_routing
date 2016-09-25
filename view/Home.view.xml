@@ -1,0 +1,78 @@
+<core:View xmlns="sap.m"
+			xmlns:core="sap.ui.core"
+			xmlns:mvc="sap.ui.core.mvc"
+			xmlns:html="http://www.w3.org/1999/xhtml"
+			xmlns:custctrl="my.customcontrol.binding.and.routing.control"
+			controllerName="my.customcontrol.binding.and.routing.controller.Home">
+	<Page showHeader="false">
+		<content>
+		
+			<!-- Custom control version 1 -->
+			<custctrl:SBCustCtrl1 text="{i18n>text1}"
+							btnText="{i18n>btnText1}"
+							btnGGGPress="onBtnMMPress"
+							btnGGGOver="onBtnMMOver"
+							class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd"/><!-- btnGGGOut="onBtnMMOut"/> -->
+			<!-- /Custom control version 1 -->
+					
+			<!-- Custom control version 2 -->		
+			<custctrl:SBCustCtrl2 text="TextText2"
+							btnText="ButtonText2"
+							btnPress="onBtnPress2"
+							class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd"/>
+			<!-- /Custom control version 2 -->
+							
+			<!-- Custom control version 3 -->
+			<custctrl:SBCustCtrl3 text="TextText3" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd">
+				<custctrl:content>
+					<!-- User controls  -->
+					<VBox>
+						<Text text="text1"/>
+						<Text text="text2"/>
+					</VBox>
+					<HBox>
+						<Button text="Button1"/><Button text="Button2"/>
+						<Button text="Button3"/><Button text="Button4"/>
+					</HBox>
+					<HBox>
+						<Button text="Button1"/>
+						<Button text="Button2"/>
+					</HBox>
+					<!-- /User controls  -->
+				</custctrl:content>
+			</custctrl:SBCustCtrl3>
+			<!-- /Custom control version 3 -->
+			
+			<!-- Data binding simple (view) -->
+			<VBox class="this-my-style sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd">
+				<Input
+					value="{model1>/data1}"
+					description=""
+					valueLiveUpdate="true"
+					width="50%"/>
+				<Text text="{model1>/data2/data2_1}"/>
+				<Text text="{model1>/data2/data2_2}"/>
+				<Button text="Check data.." press="onPressBtnCheckDataBinding"/>
+			</VBox>
+			<!-- /Data binding simple (view) -->
+			
+			<!-- Data binding aggregation custom HTML -->
+			<custctrl:SBCustCtrl3 text="TextText4" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom sapUiSmallMarginEnd">
+				<custctrl:content>
+					<List items="{products>/Products}" headerText="Some A-products">
+						<CustomListItem>
+							<HBox>
+								<Link text="{products>ProductName}" href="#{products>ProductPicUrl}" press="onclick3A" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+								<core:Icon size="2rem" src="sap-icon://favorite" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+								<Text text="{products>QuantityPerUnit}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>
+								<Label text="{ProductId}"/>
+							</HBox>
+						</CustomListItem>
+					</List>
+				</custctrl:content>
+			</custctrl:SBCustCtrl3>
+			<!-- /Data binding aggregation custom HTML -->
+							
+		</content>
+	</Page>
+</core:View>
